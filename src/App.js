@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { StateProvider } from './stateContext';
+import { ThemeProvider } from '@material-ui/styles';
+import theme from './constants/theme';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Header from "./views/Header";
+import Main from "./views/Main"
+import Footer from "./views/Footer";
+// import LegalNoticePopup from "./Views/LegalNoticePopups/LegalNoticePopup";
+
+const App = () =>
+   <ThemeProvider theme={theme}>
+    <StateProvider>
+      <div style={{ flexGrow: 1 }}>
+        <Header title="PAYMENT FORM" logoLink="logo.svg" />
+        <Main />
+        <Footer />
+      </div>
+    </StateProvider>
+  </ThemeProvider>
+
+console.log(`%cPRODUCED AND DESIGNED BY\n      __      __\n     /\\ \\    / /\\\n    /  \\ \\  / /  \\\n   / /\\ \\ \\/ / /\\ \\\n  / ____ \\  / ____ \\\n /_/    \\_\\/_/    \\_\\ `, 'color: #5d9cb3;');
 
 export default App;
